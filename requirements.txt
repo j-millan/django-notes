@@ -1,0 +1,7 @@
+asgiref==3.2.10
+coverage==5.3
+Django==3.1.2
+django-environ==0.4.5
+model-bakery==1.2.0
+pytz==2020.1
+sqlparse==0.4.1
