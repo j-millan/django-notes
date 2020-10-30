@@ -1,4 +1,7 @@
-db.sqlite
 __pycache__
+htmlcov
+db.sqlite3
 .python-version
-.coveragecr
+.coverage
+.coveragerc
+.env
