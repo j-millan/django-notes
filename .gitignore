@@ -1,0 +1,4 @@
+db.sqlite
+__pycache__
+.python-version
+.coveragecr
