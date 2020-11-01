@@ -29,7 +29,7 @@ class SignUpViewTests(TestCase):
 		self.assertContains(self.response, '<input type="email"', 1)
 		self.assertContains(self.response, '<input type="password"', 2)
 
-class SignUpViewSuccessfulPostRequestTests(TestCase):
+class SignUpViewValidPostDataTests(TestCase):
 	def setUp(self):
 		url = reverse('auth:sign_up')
 		data = {
@@ -52,7 +52,7 @@ class SignUpViewSuccessfulPostRequestTests(TestCase):
 		user = response.context.get('user')
 		self.assertTrue(user.is_authenticated)
 
-class SignUpViewInvalidPostRequestTests(TestCase):
+class SignUpViewInvalidPostDataTests(TestCase):
 	def setUp(self):
 		url = reverse('auth:sign_up')
 		self.response = self.client.post(url, {})
@@ -66,4 +66,3 @@ class SignUpViewInvalidPostRequestTests(TestCase):
 	def test_form_errors(self):
 		form = self.response.context.get('form')
 		self.assertTrue(form.errors)
-		

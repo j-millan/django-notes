@@ -13,7 +13,7 @@ class LoginViewTests(TestCase):
 
 		self.response = self.client.post(login_url, data={'username': username, 'password': password})
 
-	def test_logged_in(self):
+	def test_user_authenticated(self):
 		response = self.client.get(self.home_url)
 		self.assertTrue(response.context.get('user').is_authenticated)
 

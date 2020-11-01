@@ -45,7 +45,7 @@ class CreateNoteLoginRequiredTests(UserCreationTestCase):
 		login_url = reverse('auth:login')
 		self.assertRedirects(self.response, f'{login_url}?next={self.url}')
 
-class CreateNoteSuccesfulPostRequestTests(CreateNoteViewTestCase):
+class CreateNoteValidPostDataTests(CreateNoteViewTestCase):
 	def setUp(self):
 		super().setUp()
 		data = {
@@ -61,7 +61,7 @@ class CreateNoteSuccesfulPostRequestTests(CreateNoteViewTestCase):
 	def test_note_created(self):
 		self.assertTrue(Note.objects.exists())
 
-class CreateNoteInvalidPostRequestTests(CreateNoteViewTestCase):
+class CreateNoteInvalidPostDataTests(CreateNoteViewTestCase):
 	def setUp(self):
 		super().setUp()
 		self.response = self.client.post(self.url, {})
