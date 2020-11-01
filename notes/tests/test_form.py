@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 from notes.models import Note
 from notes.forms import NoteForm
-from .view import UserCreationTestCase
+from .test_view_home import UserCreationTestCase
 
 class NoteFormTests(UserCreationTestCase):
 	def setUp(self):
