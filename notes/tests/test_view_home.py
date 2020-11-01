@@ -39,8 +39,9 @@ class HomeViewTests(UserCreationTestCase):
 class HomeViewLoginRequiredTests(UserCreationTestCase):
 	def setUp(self):
 		super().setUp()
-		url = reverse('notes:home')
-		self.response = self.client.get(url)
+		self.url = reverse('notes:home')
+		self.response = self.client.get(self.url)
 
-	'''def test_redirection(self):
-		self.assertEqual(self.response.status_code, 302)'''
+	def test_redirection(self):
+		login_url = reverse('auth:login')
+		self.assertRedirects(self.response, f'{login_url}?next={self.url}')
