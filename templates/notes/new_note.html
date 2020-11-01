@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>Create a new note</title>
-	</head>
+{% extends "base.html" %}
 
-	<body>
-		<h1>Add a new note</h1>
-		<form method="post" novalidate>
+{% block title %}
+	Create a new note
+{% endblock title %}
+
+{% block body %}
+	<h1>Add a new note</h1>
+	<form method="post" novalidate>
 			{% csrf_token %}
 			{{ form.as_p }}
-			<button type="submit">Add</button>
-		</form>	
-	</body>
-</html>
+		<button type="submit">Add</button>
+	</form>
+{% endblock body %}
