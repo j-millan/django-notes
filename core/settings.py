@@ -126,3 +126,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
+
+# Login urls
+
+LOGIN_URL = 'auth:login'
+LOGIN_REDIRECT_URL = 'notes:home'
