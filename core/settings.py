@@ -131,3 +131,4 @@ STATIC_ROOT = BASE_DIR / 'static'
 
 LOGIN_URL = 'auth:login'
 LOGIN_REDIRECT_URL = 'notes:home'
+LOGOUT_REDIRECT_URL = 'auth:login'
