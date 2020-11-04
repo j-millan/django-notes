@@ -6,7 +6,8 @@ from notes.forms import NoteForm
 
 @login_required
 def home(request):
-	notes = Note.objects.all()
+	user = request.user
+	notes = user.notes.all()
 	return render(request, 'notes/home.html', {'notes': notes})
 
 @login_required

@@ -21,6 +21,9 @@ class HomeViewTests(UserCreationTestCase):
 		self.note1 = baker.make(Note, user=self.user)
 		self.note2 = baker.make(Note, user=self.user)
 
+		new_user = User.objects.create(username='newuser', email='mail@email.com', password='drowssap')
+		self.random_note = baker.make(Note, user=new_user)
+
 		self.response = self.client.get(self.url)
 
 	def test_successful_status_code(self):
@@ -35,6 +38,7 @@ class HomeViewTests(UserCreationTestCase):
 		self.assertTrue(notes)
 		self.assertIn(self.note1, notes)
 		self.assertIn(self.note2, notes)
+		self.assertNotIn(self.random_note, notes)
 
 class HomeViewLoginRequiredTests(UserCreationTestCase):
 	def setUp(self):
