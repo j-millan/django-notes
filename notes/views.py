@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
 from notes.models import Note
@@ -23,3 +23,12 @@ def new_note(request):
 		form = NoteForm()
 
 	return render(request, 'notes/new_note.html', {'form': form})
+
+@login_required
+def note_detail(request, pk):
+	user = request.user
+	note = get_object_or_404(Note, pk=pk)
+	if note.user == user:
+		return render(request, 'notes/note_detail.html', {'note': note})
+
+	return redirect('notes:home')
