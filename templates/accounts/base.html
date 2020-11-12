@@ -7,9 +7,13 @@
 		<link rel="stylesheet" href="{% static "css/bulma.min.css" %}">
 	</head>
 	<body>
-		{% block body %}
-			
-		{% endblock body %}
-		<script src='{% static "js/bulma/bulma.js" %}'></script>
+		<div class="columns is-centered">
+			<div class="column is-half has-text-centered">
+				{% block body %}
+					
+				{% endblock body %}
+			</div>
+		</div>
+		<script src="{% static "js/bulma/bulma.js" %}"></script>
 	</body>
 </html>
