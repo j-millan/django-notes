@@ -1,14 +1,28 @@
 {% extends "accounts/base.html" %}
+{% load widget_tweaks %}
 
 {% block title %}
 	Sign up
 {% endblock title %}
 
+{% block card-header %}
+	Sign up
+{% endblock card-header %}
+
 {% block body %}
-	<h3>Log in</h3>
-	<form method="POST">
+	<form method="POST" novalidate>
 		{% csrf_token %}
-		{{ form.as_p }}
-		<button type="submit">sign up</button>
+		{% for field in form %}
+			<div class="field">
+				<label class="label is-small">{{ field.label }}</label>
+				{% render_field field class="input" %}
+			</div>
+		{% endfor %}
+		<button type="submit" class="button is-primary is-fullwidth">sign up</button>
 	</form>
 {% endblock body %}
+
+{% block card-footer %}
+	Already have an account? Log in 
+	<a href="{% url 'auth:login' %}">here</a>.
+{% endblock card-footer %}

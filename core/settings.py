@@ -43,7 +43,8 @@ INSTALLED_APPS = [
 
     'notes',
     'accounts',
-    'model_bakery'
+    'model_bakery',
+    'widget_tweaks'
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,11 @@
+body {
+	background: hsl(180, 50%, 50%);
+}
+
+.card {
+	background: hsl(0, 0%, 95%);
+}
+
+.is-fullheight {
+	height: 100%;
+}
